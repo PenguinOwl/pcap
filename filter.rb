@@ -1,6 +1,6 @@
 class Pattern
   attr_accessor :list, :first, :full
-  def initalize(text)
+  def initialize(text)
     text.downcase!
     @first = text[0]
     @full = text
