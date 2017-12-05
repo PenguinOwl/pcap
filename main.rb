@@ -1,4 +1,15 @@
 require "yt"
+def createPatterns(filename)
+  file = File.open(filename,"r+")
+  words = file.read.split("\n")
+  ptrlist = []
+  words.each { |word|
+    ptrlist << Pattern.new(word)
+  }
+  return ptrlist
+end
+print "File to template? "
+ms = createPatterns(gets.strip)
 class YTinteract
   def get
     print "API Key: " 
@@ -52,15 +63,4 @@ def scan(text, ptrlist)
   puts words.join(" ")
   file.close
 end
-def createPatterns(filename)
-  file = File.open(filename,"r+")
-  words = file.read.split("\n")
-  ptrlist = []
-  words.each { |word|
-    ptrlist << Pattern.new(word)
-  }
-  return ptrlist
-end
-print "File to template? "
-ms = createPatterns(gets.strip)
 YTinteract.new.get
