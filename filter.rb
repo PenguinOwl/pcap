@@ -14,14 +14,16 @@ def scan(text, ptrlist)
   words = text.split(" ")
   words.each_index { |i|
     a = 0
+    n = 0
     x = words[i]
     ptrlist.each { |pattern|
       if pattern.first == Pattern.new(words[i]).first and (pattern.list - Pattern.new(words[i]).list).size < (Pattern.new(words[i]).list.size / 2) then 
+        n = (pattern.list - Pattern.new(words[i]).list)
         words.delete_at(i)
         a = 1
       end
     }
-    file.write(x+" "+a.to_s+"\n")
+    file.write(x+" -  "+a.to_s+" $"+n.to_s+"\n")
   }
   puts words.join(" ")
   file.close
