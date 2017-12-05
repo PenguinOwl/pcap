@@ -55,7 +55,7 @@ def scan(text, ptrlist)
     a = 0
     n = 0
     x = words[i]
-    if x != nil and x != "" then
+    unless x == nil or x == "" or x.match(/(.+>.+|.+<.+)/) then
     ptrlist.each { |pattern|
       if pattern.first == Pattern.new(words[i]).first and (pattern.list - Pattern.new(words[i]).list).size < (Pattern.new(words[i]).list.size / 2) then 
         n = (pattern.list - Pattern.new(words[i]).list)
