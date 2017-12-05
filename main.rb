@@ -19,7 +19,7 @@ def createPatterns(filename)
   return ptrlist
 end
 print "File to template? "
-ms = createPatterns(gets.strip)
+$ms = createPatterns(gets.strip)
 class YTinteract
   def get
     print "API Key: " 
@@ -34,7 +34,7 @@ class YTinteract
       begin
       vid.comment_threads.each do |thread|
         if thread.can_reply? then
-        scan(thread.text_display, ms)
+        scan(thread.text_display, $ms)
         end
       end
       rescue Yt::Errors::Forbidden
