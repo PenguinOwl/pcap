@@ -54,6 +54,7 @@ def scan(text, ptrlist)
   words.each_index { |i|
     a = 0
     n = 0
+    words[i].strip!
     x = words[i]
     unless x == nil or x == "" or x.include? ">" or x.include? "<" then
     ptrlist.each { |pattern|
