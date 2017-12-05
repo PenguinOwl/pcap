@@ -2,11 +2,13 @@ require "yt"
 class Pattern
   attr_accessor :list, :first, :full
   def initialize(text)
+    if text != nil and text != ""
     text.downcase!
     @first = text[0]
     @full = text
     @list = text.split("")
     @list.delete_at(0)
+    end
   end
 end
 def createPatterns(filename)
