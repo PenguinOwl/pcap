@@ -1,4 +1,5 @@
 require "yt"
+$log = File.new("log_" + Time.now.to_s + ".txt", "w+")
 class Pattern
   attr_accessor :list, :first, :full
   def initialize(text)
@@ -49,7 +50,6 @@ class YTinteract
 end
 a = 0
 def scan(text, ptrlist)
-  file = File.new("log_" + Time.now.to_s + ".txt", "w+")
   words = text.split(" ")
   words.each_index { |i|
     a = 0
@@ -64,9 +64,10 @@ def scan(text, ptrlist)
       end
       }
       end
-    file.write(x+" -  "+a.to_s+" $"+n.to_s+"\n")
+    $log.write(x+" -  "+a.to_s+" $"+n.to_s+"\n")
   }
   puts words.join(" ")
-  file.close
+  
 end
 YTinteract.new.get
+$log.close
