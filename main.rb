@@ -10,11 +10,11 @@ class Pattern
   end
 end
 def createPatterns(filename)
-  file = File.open(filename,"r+")
+  file = File.open(filename, "r+")
   words = file.read.split("\n")
   ptrlist = []
   words.each { |word|
-    if word != nil
+    if word != nil and word != ""
       ptrlist << Pattern.new(word)
     end
   }
