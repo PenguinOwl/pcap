@@ -13,7 +13,7 @@ class YTinteract
       begin
       vid.comment_threads.each do |thread|
         if thread.can_reply? then
-        $chars = $chars + " " + thread.text_display
+        scan(thread.text_display, ms)
         end
       end
       rescue Yt::Errors::Forbidden
@@ -63,4 +63,4 @@ def createPatterns(filename)
 end
 print "File to template? "
 ms = createPatterns(gets.strip)
-scan(YTinteract.new.get, ms)
+YTinteract.new.get
