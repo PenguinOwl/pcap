@@ -14,7 +14,7 @@ def scan(text, ptrlist)
   words.each_index { |i|
     a = 0
     ptrlist.each { |pattern|
-      if pattern.first == Pattern.new(words[i]).first and (pattern.list - Pattern.new(words[i]).list)) < (Pattern.new(words[i]).list.size / 2) then 
+      if pattern.first == Pattern.new(words[i]).first and (pattern.list - Pattern.new(words[i]).list) < (Pattern.new(words[i]).list.size / 2) then 
         words.delete_at(i)
         a = 1
       end
