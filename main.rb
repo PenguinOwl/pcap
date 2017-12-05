@@ -60,8 +60,8 @@ def scan(text, ptrlist)
         words.delete_at(i)
         a = 1
       end
+      }
       end
-    }
     file.write(x+" -  "+a.to_s+" $"+n.to_s+"\n")
   }
   puts words.join(" ")
