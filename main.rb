@@ -14,7 +14,9 @@ def createPatterns(filename)
   words = file.read.split("\n")
   ptrlist = []
   words.each { |word|
-    ptrlist << Pattern.new(word)
+    if word != nil
+      ptrlist << Pattern.new(word)
+    end
   }
   return ptrlist
 end
