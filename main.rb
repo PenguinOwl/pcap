@@ -63,8 +63,8 @@ def scan(text, ptrlist)
         a = 1
       end
       }
-      end
     $log.write(x+" -  "+a.to_s+" $"+n.to_s+"\n")
+      end
   }
   puts words.join(" ")
   
