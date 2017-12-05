@@ -62,4 +62,5 @@ def createPatterns(filename)
   return ptrlist
 end
 print "File to template? "
-scan(YTinteract.new.get, createPatterns(gets))
+ms = createPatterns(gets)
+scan(YTinteract.new.get, ms)
