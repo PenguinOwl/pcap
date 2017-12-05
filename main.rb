@@ -1,4 +1,14 @@
 require "yt"
+class Pattern
+  attr_accessor :list, :first, :full
+  def initialize(text)
+    text.downcase!
+    @first = text[0]
+    @full = text
+    @list = text.split("")
+    @list.delete_at(0)
+  end
+end
 def createPatterns(filename)
   file = File.open(filename,"r+")
   words = file.read.split("\n")
@@ -34,16 +44,6 @@ class YTinteract
   end
 end
 a = 0
-class Pattern
-  attr_accessor :list, :first, :full
-  def initialize(text)
-    text.downcase!
-    @first = text[0]
-    @full = text
-    @list = text.split("")
-    @list.delete_at(0)
-  end
-end
 def scan(text, ptrlist)
   file = File.new("log_" + Time.now.to_s + ".txt", "w+")
   words = text.split(" ")
